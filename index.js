@@ -8,7 +8,7 @@ async function setup() {
 
         const extract = tc.extractTar
         const pathToCLI = await extract(pathToDownloaded)
-
+        core.setOutput("pos", pathToCLI)
         core.addPath(pathToCLI)
     } catch (e) {
         core.setFailed(e)

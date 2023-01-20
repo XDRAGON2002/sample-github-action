@@ -1,0 +1,1 @@
+# GitHub Action to integrate cve-bin-tool into CI
