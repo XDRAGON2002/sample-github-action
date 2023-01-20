@@ -3,6 +3,7 @@ description: "Downloads, extracts and adds it to PATH"
 outputs:
   pos:
     description: "Path of tool"
+    default: "bcd"
 runs:
   using: "node16"
   main: "dist/index.js"
