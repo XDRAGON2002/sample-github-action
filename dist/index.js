@@ -6,6 +6,7 @@
 
 const core = __nccwpck_require__(4581)
 const tc = __nccwpck_require__(4331)
+const path = __nccwpck_require__(1017)
 
 async function setup() {
     try {
@@ -14,8 +15,9 @@ async function setup() {
 
         const extract = tc.extractTar
         const pathToCLI = await extract(pathToDownloaded)
+        const filename = "cve-bin-tool-3.2"
         core.setOutput("pos", pathToCLI)
-        core.addPath(pathToCLI)
+        core.addPath(path.join(pathToCLI, path.join(filename, 'bin')))
     } catch (e) {
         core.setFailed(e)
     }
