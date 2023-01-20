@@ -1,5 +1,6 @@
 const core = require("@actions/core")
 const tc = require("@actions/tool-cache")
+const path = require("path")
 
 async function setup() {
     try {
@@ -8,8 +9,9 @@ async function setup() {
 
         const extract = tc.extractTar
         const pathToCLI = await extract(pathToDownloaded)
-        core.setOutput("pos", "abc")
-        core.addPath(pathToCLI)
+        const filename = "cve-bin-tool-3.2"
+        core.setOutput("pos", pathToCLI)
+        core.addPath(path.join(pathToCLI, path.join(filename, 'bin')))
     } catch (e) {
         core.setFailed(e)
     }
